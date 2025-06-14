@@ -111,14 +111,17 @@
             margin-bottom: 15px;
             position: relative;
             z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .price-prefix {
             font-size: 1.5rem;
             font-weight: 500;
             opacity: 0.9;
-            display: block;
-            margin-bottom: 8px;
         }
 
         .price-amount {
@@ -136,16 +139,25 @@
             font-size: 1.2rem;
             font-weight: 500;
             opacity: 0.9;
-            margin-top: 5px;
         }
 
         .product-period {
             font-size: 1.2rem;
             opacity: 0.95;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             position: relative;
             z-index: 2;
             font-weight: 500;
+        }
+
+        .product-note {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+            font-weight: 400;
+            line-height: 1.4;
         }
 
         /* 购买选项 */
@@ -437,6 +449,12 @@
                 margin-bottom: 15px;
             }
 
+            .product-price {
+                flex-direction: column;
+                gap: 5px;
+                align-items: center;
+            }
+
             .price-amount {
                 font-size: 2.8rem;
             }
@@ -448,8 +466,14 @@
 
             .product-period {
                 font-size: 0.9rem;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 line-height: 1.4;
+            }
+
+            .product-note {
+                font-size: 0.8rem;
+                margin-bottom: 20px;
+                line-height: 1.3;
             }
 
             .guarantee-section,
@@ -578,6 +602,10 @@
                 font-size: 1.8rem;
             }
 
+            .product-price {
+                gap: 10px;
+            }
+
             .price-amount {
                 font-size: 3.5rem;
             }
@@ -589,6 +617,10 @@
 
             .product-period {
                 font-size: 1rem;
+            }
+
+            .product-note {
+                font-size: 0.9rem;
             }
 
             .guarantee-section,
@@ -662,6 +694,7 @@
                     <span class="price-suffix">一个月</span>
                 </div>
                 <div class="product-period">客服V：lisuwen116【添加备注：gpt代充】</div>
+                <div class="product-note">（已有号的可以24小时自助充，需要成品号的需要私下客服）</div>
             </div>
 
             <!-- 购买选项 -->
