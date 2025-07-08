@@ -305,10 +305,27 @@
             font-weight: 400;
         }
 
-        /* 视频教程区域 */
+        /* 视频教程区域 - 优化 */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            margin: 20px auto;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
         .video-section {
             padding: 50px 40px;
-            background: linear-gradient(135deg, #cce7ff 0%, #99d6ff 100%);
+            background: #fff;
             text-align: center;
         }
 
@@ -367,6 +384,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
+            padding: 0 40px 50px;
         }
 
         .feature-card {
@@ -480,6 +498,9 @@
             .purchase-section,
             .video-section {
                 padding: 30px 20px;
+            }
+            .features {
+                 padding: 0 20px 30px;
             }
 
             .guarantee-title,
@@ -628,6 +649,9 @@
             .video-section {
                 padding: 35px 25px;
             }
+            .features {
+                padding: 0 25px 35px;
+            }
 
             .guarantee-title,
             .purchase-title,
@@ -676,15 +700,12 @@
 </head>
 <body>
     <div class="container">
-        <!-- 头部 -->
         <header class="header">
             <h1>🚀 ChatGpt Plus 代充</h1>
             <div class="subtitle">专业 • 安全 • 保障</div>
         </header>
 
-        <!-- 主要内容 -->
         <div class="main-content">
-            <!-- 产品展示 -->
             <div class="product-section">
                 <div class="product-badge">✨ 靠谱给力</div>
                 <h2 class="product-title">官网ChatGpt Plus 会员</h2>
@@ -697,7 +718,6 @@
                 <div class="product-note">（已有号的可以24小时自助充，需要成品号的需要私下客服）</div>
             </div>
 
-            <!-- 购买选项 -->
             <div class="purchase-section">
                 <h3 class="purchase-title">💳 先买卡密再进代充系统</h3>
                 <div class="purchase-options">
@@ -712,7 +732,6 @@
                 </div>
             </div>
 
-            <!-- 服务保障 -->
             <div class="guarantee-section">
                 <h3 class="guarantee-title">🛡️ 服务保障</h3>
                 <div class="guarantee-list">
@@ -740,25 +759,29 @@
                 </div>
             </div>
 
-            <!-- 操作流程视频 -->
-       <iframe src="https://player.vimeo.com/video/1099589135?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1280" height="650" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="gpt plus plus"></iframe>
+            <div class="video-section">
+                 <h3 class="video-title">🎬 操作流程</h3>
+                <div class="video-wrapper">
+                    <iframe src="https://player.vimeo.com/video/1099589135?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="gpt plus plus"></iframe>
+                </div>
+            </div>
 
-        <!-- 底部特色 -->
-        <div class="features">
-            <div class="feature-card">
-                <span class="feature-icon">⭐</span>
-                <h4>信誉保证</h4>
-                <p>多年经验，值得信赖</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">🎯</span>
-                <h4>专业服务</h4>
-                <p>专注Gpt Plus代充服务</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">💎</span>
-                <h4>品质保障</h4>
-                <p>高质量服务，用户好评</p>
+            <div class="features">
+                <div class="feature-card">
+                    <span class="feature-icon">⭐</span>
+                    <h4>信誉保证</h4>
+                    <p>多年经验，值得信赖</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h4>专业服务</h4>
+                    <p>专注Gpt Plus代充服务</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💎</span>
+                    <h4>品质保障</h4>
+                    <p>高质量服务，用户好评</p>
+                </div>
             </div>
         </div>
     </div>
