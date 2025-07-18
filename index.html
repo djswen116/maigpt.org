@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -139,6 +140,29 @@
             font-size: 1.2rem;
             font-weight: 500;
             opacity: 0.9;
+        }
+        
+        /* 帮助按钮样式 */
+        .help-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, #ffb700 0%, #ff8c00 100%);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 25px auto 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .help-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
         }
 
         .product-period {
@@ -443,6 +467,12 @@
                 font-size: 1rem;
             }
             
+            .help-btn {
+                font-size: 1rem;
+                padding: 12px 28px;
+                margin: 20px auto 0;
+            }
+            
             .product-period .qr-code {
                 width: 200px; /* 移动端尺寸 */
                 height: 200px;
@@ -674,6 +704,7 @@
                     <div class="price-amount">¥130</div>
                     <span class="price-suffix">一个月</span>
                 </div>
+                <a href="https://acn0d26eyhcl.feishu.cn/wiki/Mx9kwCDmVibUZckZgtacKPy9nSf?from=from_copylink" class="help-btn" target="_blank">📖点开打开使用帮助</a>
                 <div class="product-period">
                     <img src="image/27.png" alt="客服微信二维码" class="qr-code">
                     <p>【备注：gpt代充】<br>(怕添加频繁，会缓会通过，请知悉)</p>
