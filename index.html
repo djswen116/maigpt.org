@@ -717,6 +717,56 @@
                 -webkit-overflow-scrolling: touch;
             }
         }
+        
+        /* 新增：弹窗样式 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            max-width: 90%;
+            width: 450px;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-content .message {
+           color: #333;
+           font-size: 1.1rem;
+           line-height: 1.6;
+           margin: 0;
+        }
+        .modal-content .timer-text {
+           color: #666;
+           font-size: 1rem;
+           margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -745,16 +795,14 @@
             <div class="purchase-section">
                 <h3 class="purchase-title">💳 先买卡密再进代充系统</h3>
                 <div class="purchase-options">
-<a href="https://yo.i6ls.com//links/687593ED" class="purchase-btn secondary" target="_blank" rel="noopener noreferrer">
+                    <a href="https://yo.i6ls.com//links/687593ED" class="purchase-btn secondary" target="_blank" rel="noopener noreferrer">
                         <h3>🎫 卡密自助购买</h3>
                         <p>即买即发，自动发货</p>
                     </a>
-    </a>
-              <a href="https://gptplus.biz/recharge" class="purchase-btn primary" target="_blank" rel="noopener noreferrer">
+                    <a href="https://gptplus.biz/recharge" class="purchase-btn primary" rel="noopener noreferrer">
                         <h3>🤖 24小时代充系统</h3>
                         <p>先买卡密，再进代充</p>
                     </a>
-          
                 </div>
             </div>
 
@@ -793,7 +841,7 @@
                 </div>
             </div>
             
-       <div class="video-section" id="video">
+            <div class="video-section" id="video">
                 <h3 class="video-title">🎬 操作流程</h3>
                 <div class="video-container">
                     <video
@@ -826,5 +874,64 @@
             </div>
         </div>
     </div>
+    
+    <div id="custom-alert-modal" class="modal-overlay">
+      <div class="modal-content">
+        <p class="message">自动系统有点小BUG,技术估计得3小时左右恢复，要是着急的，可以把卡密和进入系统后获取后一长串的密钥给客服手动处理充值！</p>
+        <p class="timer-text">将在 <strong id="modal-timer">20</strong> 秒后自动跳转...</p>
+      </div>
+    </div>
+
+    <script>
+        // 等待DOM完全加载后执行脚本
+        document.addEventListener('DOMContentLoaded', function() {
+    
+            // 通过链接地址精确选择“24小时代充系统”按钮
+            const rechargeLink = document.querySelector('a[href="https://gptplus.biz/recharge"]');
+    
+            // 获取弹窗和计时器元素
+            const modal = document.getElementById('custom-alert-modal');
+            const timerSpan = document.getElementById('modal-timer');
+    
+            // 确保按钮存在，以防万一
+            if (rechargeLink) {
+                // 为按钮添加点击事件监听器
+                rechargeLink.addEventListener('click', function(event) {
+                    
+                    // 1. 阻止链接的默认跳转行为
+                    event.preventDefault();
+                    
+                    const destinationUrl = this.href;
+    
+                    // 2. 显示弹窗
+                    if (modal) {
+                        modal.classList.add('visible');
+                    }
+    
+                    let timeLeft = 60; // 倒计时60秒
+                    if (timerSpan) {
+                       timerSpan.textContent = timeLeft;
+                    }
+    
+                    // 3. 启动计时器，每秒更新显示的数字
+                    const countdownInterval = setInterval(() => {
+                        timeLeft--;
+                        if (timerSpan) {
+                            timerSpan.textContent = timeLeft;
+                        }
+                        // 倒计时结束后清除计时器
+                        if (timeLeft <= 0) {
+                            clearInterval(countdownInterval);
+                        }
+                    }, 1000);
+    
+                    // 4. 设置一个60秒后执行的延时操作，用于跳转
+                    setTimeout(() => {
+                        window.location.href = destinationUrl;
+                    }, 60000); // 60000毫秒 = 60秒
+                });
+            }
+        });
+    </script>
 </body>
 </html>
