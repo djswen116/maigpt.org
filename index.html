@@ -879,7 +879,7 @@
     <div id="custom-alert-modal" class="modal-overlay">
       <div class="modal-content">
         <p class="message">周一太火爆，充值系统繁忙！失败多点几次！如果一直不行，也可把卡密和充值密钥发客服后台处理！(无需密码和上号)，也很快处理！</p>
-        <p class="timer-text">将在 <strong id="modal-timer">5</strong> 秒后进代充系统...</p>
+        <p class="timer-text">将在 <strong id="modal-timer">10</strong> 秒后进代充系统...</p>
       </div>
     </div>
 
@@ -909,7 +909,7 @@
                         modal.classList.add('visible');
                     }
     
-                    let timeLeft = 5; // 倒计时5秒
+                    let timeLeft = 10; // 倒计时10秒
                     if (timerSpan) {
                        timerSpan.textContent = timeLeft;
                     }
@@ -926,10 +926,10 @@
                         }
                     }, 1000);
     
-                    // 4. 设置一个5秒后执行的延时操作，用于跳转
+                    // 4. 设置一个10秒后执行的延时操作，用于跳转
                     setTimeout(() => {
                         window.location.href = destinationUrl;
-                    }, 5000); // 5000毫秒 = 5秒
+                    }, 5000); // 10000毫秒 = 10秒
                 });
             }
         });
