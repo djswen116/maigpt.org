@@ -879,7 +879,7 @@
     <div id="custom-alert-modal" class="modal-overlay">
       <div class="modal-content">
         <p class="message">全自动充值恢复了！恢复了！自行操作就可！​前两天是供不应求，限量供应，已经解决！</p>
-        <p class="timer-text">将在 <strong id="modal-timer">20</strong> 秒后进入代充系统...</p>
+        <p class="timer-text">将在 <strong id="modal-timer">5</strong> 秒后进入代充系统...</p>
       </div>
     </div>
 
@@ -909,7 +909,7 @@
                         modal.classList.add('visible');
                     }
     
-                    let timeLeft = 20; // 倒计时20秒
+                    let timeLeft = 5; // 倒计时5秒
                     if (timerSpan) {
                        timerSpan.textContent = timeLeft;
                     }
@@ -926,10 +926,10 @@
                         }
                     }, 1000);
     
-                    // 4. 设置一个20秒后执行的延时操作，用于跳转
+                    // 4. 设置一个5秒后执行的延时操作，用于跳转
                     setTimeout(() => {
                         window.location.href = destinationUrl;
-                    }, 20000); // 20000毫秒 = 20秒
+                    }, 5000); // 5000毫秒 = 5秒
                 });
             }
         });
