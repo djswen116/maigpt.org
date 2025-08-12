@@ -878,8 +878,8 @@
     
     <div id="custom-alert-modal" class="modal-overlay">
       <div class="modal-content">
-        <p class="message">买了卡密的发客服卡密、充值密钥处理！(有内部通道处理！)(无需上号，不获取密码）全网ios充值额度都供不应求！ 对外充值系统暂用不了！请理解！</p>
-        <p class="timer-text">将在 <strong id="modal-timer">20</strong> 秒后获取充值密钥，请把卡密一并发给客服处理...</p>
+        <p class="message">自动额度恢复中了！如果还是充不了的！发客服卡密、充值密钥处理！(无需上号，不获取密码）</p>
+        <p class="timer-text">将在 <strong id="modal-timer">20</strong> 秒后进入代充系统...</p>
       </div>
     </div>
 
@@ -888,7 +888,7 @@
         document.addEventListener('DOMContentLoaded', function() {
     
             // 通过链接地址精确选择“24小时代充系统”按钮
-            const rechargeLink = document.querySelector('a[href="https://chat.openai.com/api/auth/session"]');
+            const rechargeLink = document.querySelector('a[href="https://gptplus.biz/recharge"]');
     
             // 获取弹窗和计时器元素
             const modal = document.getElementById('custom-alert-modal');
