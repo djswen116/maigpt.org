@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -7,6 +6,9 @@
     <title>ChatGPT Plus 会员自助充值指南</title>
     <style>
         /* --- 全局样式 --- */
+        html {
+            scroll-behavior: smooth; /* 平滑滚动效果 */
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: #f4f6f9;
@@ -123,6 +125,68 @@
         strong {
             color: #2d3748;
         }
+
+        /* --- 新增：导航栏样式 --- */
+        .nav-bar {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 20px 0;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .nav-bar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap; /* 适配手机端换行 */
+        }
+        .nav-bar li {
+            margin: 5px; /* 适配手机端间距 */
+        }
+        .nav-bar a {
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #2d3748;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-bar a:hover {
+            background-color: #edf2f7;
+            color: #1a202c;
+            text-decoration: none;
+        }
+
+        /* --- 新增：返回顶部按钮样式 --- */
+        #backToTopBtn {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 12px;
+            font-size: 14px;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            line-height: 1.2;
+        }
+        #backToTopBtn:hover {
+            background-color: #2b6cb0;
+            text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
@@ -135,13 +199,21 @@
             您也可以观看我们网站首页的<a href="https://gptplus.plus/#video" target="_blank"><strong>1分钟视频教程</strong></a>，快速了解所有步骤。<br>请牢记我们的网址：gptplus.plus 防失联
         </p>
 
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="#steps">操作步骤</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </nav>
+
         <hr>
 
-        <h2>第一步：购买充值卡密</h2>
+        <h2 id="steps">第一步：购买充值卡密</h2>
         <p>在开始之前，您需要先从我们的网站获取一张充值卡密。</p>
         <ol>
             <li>访问我们的网站：<a href="https://gptplus.plus" target="_blank">https://gptplus.plus</a></li>
-          <li>点击首页的 <a href="https://sc.i6ls.com//links/687593ED" target="_blank"><strong>“卡密自助购买”</strong></a> 按钮。</li>
+            <li>点击首页的 <a href="https://sc.i6ls.com//links/687593ED" target="_blank"><strong>“卡密自助购买”</strong></a> 按钮。</li>
              <img src="help/01.png" alt="网站首页，突出“卡密自助购买”按钮">
             <li>按照页面提示选择您需要的服务并完成购买。</li>
         </ol>
@@ -161,7 +233,7 @@
             <li>将您在第一步中购买的卡密粘贴到指定位置。</li>
         </ol>
         <img src="help/08.png" alt="将购买的卡密粘贴到输入框">
-   
+    
         
         <hr>
 
@@ -204,7 +276,7 @@
         
         <hr>
 
-        <h2>关于我们 & 常见问题</h2>
+        <h2 id="faq">关于我们 & 常见问题</h2>
         
         <h3>问：为什么你们的价格比官方更低？</h3>
         <p>答：我们利用了部分国家在 App Store 上的定价差异（如尼日利亚、土耳其等），技术对接正规iOS渠道进行充值。能够以更优惠的汇率成本，为大家提供服务。</p>
@@ -218,27 +290,44 @@
         <h3>问：提示充值失败，重新提交怎么办？</h3>
         <p>答：如果长时间充不进去或一直失败，是太多人同时用系统繁忙，可发客服卡密和充值密钥内部处理！（提示会员的等会员到期再充）<strong>请放心，卡密没有充值成功前都不会失效！</strong></p>
         <p>如遇高峰期卡住或充值失败，点几次或晚点再试，也可发客服卡密和充值密钥快速处理！(15小时人工在线：9:00-24:00)（提示会员的等会员到期再充）需求太大！请理解！</p>
-    
+
         <h3>问：提示充值成功后，没到账plus怎么办？</h3>
         <p>答：请确认好邮箱再点充值，防止串号，正常充值都是秒到或几分钟内到！<strong>如果遇到延迟，获取plus那里点到底，报错后再刷新就出来了！</strong></p>
         
-        
         <hr>
 
-        <h2>联系我们 & 更多服务</h2>
+        <h2 id="contact">联系我们 & 更多服务</h2>
         <p>充值过程中遇到任何问题，有其他业务需求，请联系我们。</p>
          <p>请保存我们网址gptplus.plus ，加上我们联系方式，防止失联！</p>
-        <div class="contact-box">
-            <p style="margin-top: 0;">防失联客服 QQ/微信同号</p>
-            <code>82765536</code>
-            <p style="margin-bottom: 0; font-size: 0.9em; color: #718096;">
-                添加好友请备注：<strong>Gpt代充</strong><br>
-                (加的人多，急事请先Q，微信防频繁通过慢！)
-            </p>
-            <img src="image/weixin.png" alt="防失联微信">
-        </div>
-        <p>可接Grok的代充和成品号业务，详情找客服！</p>
+         <div class="contact-box">
+             <p style="margin-top: 0;">防失联客服 QQ/微信同号</p>
+             <code>82765536</code>
+             <p style="margin-bottom: 0; font-size: 0.9em; color: #718096;">
+                  添加好友请备注：<strong>Gpt代充</strong><br>
+                  (加的人多，急事请先Q，微信防频繁通过慢！)
+             </p>
+              <img src="image/weixin.png" alt="防失联微信">
+         </div>
+         <p>可接Grok的代充和成品号业务，详情找客服！</p>
     </div>
+
+    <a id="backToTopBtn" href="#">返回<br>顶部</a>
+
+    <script>
+        // 获取返回顶部按钮的元素
+        var mybutton = document.getElementById("backToTopBtn");
+
+        // 当用户向下滚动20px时，显示按钮
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
