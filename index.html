@@ -796,7 +796,7 @@
       <div class="purchase-section">
                 <h3 class="purchase-title">💳 先买卡密再进代充系统</h3>
                 <div class="purchase-options">
-                    <a href="https://1c.i6ls.com//links/687593ED" class="purchase-btn secondary" target="_blank" rel="noopener noreferrer">
+                    <a href="https://1c.i6ls.com//links/687593ED" class="purchase-btn secondary" rel="noopener noreferrer">
                         <h3>🎫 卡密自助购买</h3>
                         <p>即买即发，自动发货</p>
                     </a>
@@ -878,60 +878,57 @@
     
     <div id="custom-alert-modal" class="modal-overlay">
       <div class="modal-content">
-        <p class="message">自动充值刚恢复，充值量太大，通道拥挤，多点几次或晚点再试（提示会员的等会员到期再充），也可联系客服处理（15小时人工在线：9:00-24:00）</p>
+        <p class="message">充值热度过高，全网断库存了，国外银行今天下午开始维护，无法补货，暂停销售，恢复了第一时间通知，客服QQ：82765536</p>
         <p class="timer-text">将在 <strong id="modal-timer">10</strong> 秒后进入代充系统...</p>
       </div>
     </div>
 
     <script>
-        // 等待DOM完全加载后执行脚本
         document.addEventListener('DOMContentLoaded', function() {
-    
-            // 通过链接地址精确选择“24小时代充系统”按钮
-            const rechargeLink = document.querySelector('a[href="https://gptplus.biz/recharge"]');
-    
-            // 获取弹窗和计时器元素
-            const modal = document.getElementById('custom-alert-modal');
-            const timerSpan = document.getElementById('modal-timer');
-    
-            // 确保按钮存在，以防万一
-            if (rechargeLink) {
-                // 为按钮添加点击事件监听器
-                rechargeLink.addEventListener('click', function(event) {
-                    
-                    // 1. 阻止链接的默认跳转行为
-                    event.preventDefault();
-                    
-                    const destinationUrl = this.href;
-    
-                    // 2. 显示弹窗
-                    if (modal) {
+            // A reusable function to set up the modal redirection logic for any button
+            function setupModalRedirect(buttonSelector) {
+                const link = document.querySelector(buttonSelector);
+                const modal = document.getElementById('custom-alert-modal');
+                const timerSpan = document.getElementById('modal-timer');
+
+                // Ensure all elements exist to avoid errors
+                if (link && modal && timerSpan) {
+                    link.addEventListener('click', function(event) {
+                        // 1. Prevent the link from navigating immediately
+                        event.preventDefault();
+                        
+                        const destinationUrl = this.href;
+
+                        // 2. Display the modal
                         modal.classList.add('visible');
-                    }
-    
-                    let timeLeft = 10; // 倒计时10秒
-                    if (timerSpan) {
-                       timerSpan.textContent = timeLeft;
-                    }
-    
-                    // 3. 启动计时器，每秒更新显示的数字
-                    const countdownInterval = setInterval(() => {
-                        timeLeft--;
-                        if (timerSpan) {
+
+                        let timeLeft = 10; // Countdown from 10 seconds
+                        timerSpan.textContent = timeLeft;
+
+                        // 3. Start the countdown interval
+                        const countdownInterval = setInterval(() => {
+                            timeLeft--;
                             timerSpan.textContent = timeLeft;
-                        }
-                        // 倒计时结束后清除计时器
-                        if (timeLeft <= 0) {
-                            clearInterval(countdownInterval);
-                        }
-                    }, 1000);
-    
-                    // 4. 设置一个10秒后执行的延时操作，用于跳转
-                    setTimeout(() => {
-                        window.location.href = destinationUrl;
-                    }, 10000); // 10000毫秒 = 10秒
-                });
+                            
+                            // When the countdown finishes, clear the interval
+                            if (timeLeft <= 0) {
+                                clearInterval(countdownInterval);
+                            }
+                        }, 1000);
+
+                        // 4. Set a timeout to redirect after 10 seconds
+                        setTimeout(() => {
+                            window.location.href = destinationUrl;
+                        }, 10000); // 10000 milliseconds = 10 seconds
+                    });
+                }
             }
+
+            // Apply the modal logic to the "24小时代充系统" button
+            setupModalRedirect('a[href="https://gptplus.biz/recharge"]');
+
+            // Apply the modal logic to the "卡密自助购买" button
+            setupModalRedirect('a[href="https://1c.i6ls.com//links/687593ED"]');
         });
     </script>
 </body>
