@@ -78,6 +78,25 @@
             font-weight: 500;
             letter-spacing: 2px;
         }
+        
+        /* 公告栏样式 */
+        .announcement-banner {
+            background-color: #ffc107; /* 醒目的黄色背景 */
+            color: #333;
+            text-align: center;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: -30px auto 30px; /* 向上移动一些，使其与头部有重叠感 */
+            max-width: 860px; /* 限制最大宽度 */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border: 1px solid rgba(0,0,0,0.1);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        .announcement-banner p {
+            margin: 5px 0;
+        }
 
         /* 主要内容区域 */
         .main-content {
@@ -462,6 +481,13 @@
                 letter-spacing: 1px;
             }
 
+            .announcement-banner {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+                border-radius: 8px;
+                margin: -15px auto 20px;
+            }
+
             .main-content {
                 border-radius: 18px;
                 margin-bottom: 30px;
@@ -626,6 +652,12 @@
                 letter-spacing: 1.5px;
             }
 
+             .announcement-banner {
+                font-size: 1rem;
+                padding: 12px 18px;
+                margin: -20px auto 25px;
+            }
+
             .product-section {
                 padding: 40px 25px;
             }
@@ -761,12 +793,12 @@
            font-size: 1.1rem;
            line-height: 1.6;
            margin: 0;
-        }
-        .modal-content .timer-text {
+         }
+         .modal-content .timer-text {
            color: #666;
            font-size: 1rem;
            margin-top: 20px;
-        }
+         }
     </style>
 </head>
 <body>
@@ -775,6 +807,12 @@
             <h1>🚀 ChatGpt Plus 代充</h1>
             <div class="subtitle">专业 • 安全 • 保障<br>请牢记我们的网址：gptplus.plus 防失联</div>
         </header>
+
+        <div class="announcement-banner">
+            <p>现全网充值资源稀缺，成本上涨太多！卡密需涨价10 元，请知悉！（能下单就能正常充！）</p>
+            <p>据Gpt官方公告，9月16号过后可能再没有低价国家了，之后的全网充值会大幅涨价！到期了的亲们别再犹豫！</p>
+            <p>（别囤卡密，只能一个一个月充，16号后续如果成本大涨，原卡密也只能补差换卡密或走退款流程）</p>
+        </div>
 
         <div class="main-content">
             <div class="product-section">
@@ -793,7 +831,7 @@
                 </div>
             </div>
 
-      <div class="purchase-section">
+       <div class="purchase-section">
                 <h3 class="purchase-title">💳 先买卡密再进代充系统</h3>
                 <div class="purchase-options">
                     <a href="https://1c.i6ls.com//links/687593ED" class="purchase-btn secondary" target="_blank" rel="noopener noreferrer">
