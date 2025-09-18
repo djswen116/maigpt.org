@@ -79,24 +79,28 @@
             letter-spacing: 2px;
         }
         
-        /* 公告栏样式 */
-        .announcement-banner {
-            background-color: #ffc107; /* 醒目的黄色背景 */
-            color: #333;
-            text-align: center;
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin: -30px auto 30px; /* 向上移动一些，使其与头部有重叠感 */
-            max-width: 860px; /* 限制最大宽度 */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border: 1px solid rgba(0,0,0,0.1);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-        .announcement-banner p {
-            margin: 5px 0;
-        }
+/* 公告栏样式 (最终版) */
+.announcement-banner {
+    background-color: aliceblue; /* 非常浅的蓝色背景 */
+    color: #1e293b;            /* 调整后：更柔和的深灰蓝色文字 */
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin: -30px auto 30px;
+    max-width: 860px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border: 1px solid lightblue; /* 柔和的浅蓝色边框 */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+.announcement-banner p {
+    margin: 5px 0;
+}
+.announcement-banner a {
+    color: #1e293b; /* 确保链接颜色统一 */
+    font-weight: bold;
+}
 
         /* 主要内容区域 */
         .main-content {
