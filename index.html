@@ -872,8 +872,8 @@
     
    <div id="custom-alert-modal" class="modal-overlay">
       <div class="modal-content">
-        <p class="message">自助充值因限购问题全网断货！技术正加班加点研究新的自动技术方案！好了第一时间恢复！目前需走人工代付！客服QQ：82765536【微信同号】</p>
-        <p class="timer-text">将在 <strong id="modal-timer">1000</strong> 秒后进代充系统...</p>
+        <p class="message">自助充值因ID限购问题，全网断货！新的方案已测试，预计48小时内恢复自动充值！目前需走人工代付！客服QQ：82765536【微信同号】</p>
+        <p class="timer-text">将在 <strong id="modal-timer">100</strong> 秒后进代充系统...</p>
       </div>
     </div>
 
@@ -903,7 +903,7 @@
                         modal.classList.add('visible');
                     }
     
-                    let timeLeft = 1000; // 倒计时1000秒
+                    let timeLeft = 100; // 倒计时100秒
                     if (timerSpan) {
                        timerSpan.textContent = timeLeft;
                     }
@@ -918,12 +918,12 @@
                         if (timeLeft <= 0) {
                             clearInterval(countdownInterval);
                         }
-                    }, 1000);
+                    }, 100);
     
                     // 4. 设置一个20秒后执行的延时操作，用于跳转
                     setTimeout(() => {
                         window.location.href = destinationUrl;
-                    }, 1000000); // 1000000毫秒 = 10秒
+                    }, 100000); // 100000毫秒 = 10秒
                 });
             }
         });
