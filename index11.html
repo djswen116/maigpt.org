@@ -839,13 +839,13 @@
            <div class="purchase-section">
                 <h3 class="purchase-title">目前充值需人工代付</h3>
                 <div class="purchase-options">
-                    <a href="https://sk.i6ls.com//links/687593ED" class="purchase-btn secondary" target="_blank" rel="noopener noreferrer">
+                    <a href="https://fe.dtyuedan.cn/shop/gptplus" class="purchase-btn secondary" target="_blank" rel="noopener noreferrer">
                         <h3>点击下单代付服务</h3>
                         <p>链接代付，安全可靠</p>
                     </a>
                     <a href="https://ow521.com/recharge" class="purchase-btn primary" rel="noopener noreferrer">
                         <h3>🤖 24小时代充系统</h3>
-                        <p>因限购全网断货，等恢复中</p>
+                        <p>已有卡密未使用的点这里</p>
                     </a>
                 </div>
             </div>
@@ -872,8 +872,8 @@
     
    <div id="custom-alert-modal" class="modal-overlay">
       <div class="modal-content">
-        <p class="message">之前购买自动卡密未使用的，可直接进代充系统操作！未购买卡密的，目前需走人工代付！客服QQ：82765536【微信同号】</p>
-        <p class="timer-text">将在 <strong id="modal-timer">100</strong> 秒后进代充系统...</p>
+        <p class="message">已购买自动卡密未使用的，可直接进代充系统操作！未购买卡密的，目前需走人工代付！客服QQ：82765536【微信同号】</p>
+        <p class="timer-text">将在 <strong id="modal-timer">10</strong> 秒后进代充系统...</p>
       </div>
     </div>
 
@@ -903,7 +903,7 @@
                         modal.classList.add('visible');
                     }
     
-                    let timeLeft = 100; // 倒计时100秒
+                    let timeLeft = 10; // 倒计时10秒
                     if (timerSpan) {
                        timerSpan.textContent = timeLeft;
                     }
@@ -920,10 +920,10 @@
                         }
                     }, 1000);
     
-                    // 4. 设置一个20秒后执行的延时操作，用于跳转
+                    // 4. 设置一个10秒后执行的延时操作，用于跳转
                     setTimeout(() => {
                         window.location.href = destinationUrl;
-                    }, 100000); // 100000毫秒 = 10秒
+                    }, 10000); // 10000毫秒 = 10秒
                 });
             }
         });
