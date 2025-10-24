@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图文说明 - 新布局示例</title>
+    <style>
+        /* --- 基础样式 (借鉴自你的代码) --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .guide-container {
+            max-width: 850px; /* 稍微加宽以容纳左右布局 */
+            margin: 0 auto;
+        }
+
+        /* --- 这是新的“图文说明”卡片样式 --- */
+        .step-card {
+            display: flex;
+            flex-direction: column; /* 默认垂直排列 (手机端) */
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            overflow: hidden; /* 保证圆角生效 */
+            border: 1px solid #e2e8f0;
+        }
+
+        /* --- 卡片的内容部分 (文字) --- */
+        .step-content {
+            padding: 30px;
+        }
+
+        /* --- 卡片的图片部分 --- */
+        .step-image {
+            padding: 30px;
+            padding-top: 0; /* 手机端时，减少与上方文字的间距 */
+            display: flex;
+            flex-direction: column; /* 让多张图片垂直排列 */
+            align-items: center;
+            justify-content: center; /* 垂直居中 */
+            background-color: #f7fafc; /* 给图片一个浅色背景 */
+            border-top: 1px solid #e2e8f0; /* 手机端时的分割线 */
+        }
+
+        .step-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 15px; /* 图片间距 */
+        }
+        /* 移除最后一张图片的下边距 */
+        .step-image img:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* --- 从你原有的CSS中借鉴的样式 --- */
+        h2, h3 {
+            color: #1a202c;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 1.2em;
+            color: #2d3748;
+        }
+
+        p, li {
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        strong {
+            color: #2d3748;
+        }
+
+        /* * --- 响应式设计 (关键) --- 
+         * 当屏幕宽度大于 768px (例如平板或电脑) 时，启用左右布局
+         */
+        @media (min-width: 768px) {
+            .step-card {
+                flex-direction: row; /* 水平排列 */
+            }
+
+            /* 让内容和图片两栏等宽 */
+            .step-content {
+                flex: 1; /* 占据 50% 宽度 */
+                padding: 40px;
+            }
+            
+            .step-image {
+                flex: 1; /* 占据 50% 宽度 */
+                padding: 40px;
+                padding-top: 40px; /* 保持一致 */
+                border-top: none; /* 移除手机端的分割线 */
+                border-left: 1px solid #e2e8f0; /* 添加电脑端的垂直分割线 */
+            }
+
+            /* * 我们可以创建一个 "reverse" 类
+             * 用于实现 "图片在左，文字在右" 的交错布局
+             */
+            .step-card.reverse {
+                flex-direction: row-reverse; /* 翻转布局 */
+            }
+
+            .step-card.reverse .step-image {
+                border-left: none;
+                border-right: 1px solid #e2e8f0; /* 分割线换到右边 */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="guide-container">
+
+        <h1 style="text-align: center; color: #1a202c; margin-bottom: 30px;">Chat.Gpt Plus 图文说明</h1>
+
+        <div class="step-card">
+            <div class="step-content">
+                <h2 id="step2">第二步：进入自助充值系统</h2>
+                <p>获取卡密后，请返回网站首页，开始自助充值流程。</p>
+                <ol>
+                    <li>再次访问网站首页：<a href="https://gptplus.plus" target="_blank">https://gptplus.plus</a></li>
+                    <li>点击 <strong>“24小时代充系统”</strong>。</li>
+                    <li>目前为保障供应尽量不断，备用多个渠道，请按卡密选择对应充值系统！</li>
+                    <li>将您在第一步中购买的卡密粘贴到指定位置。</li>
+                </ol>
+            </div>
+            <div class="step-image">
+                <img src="help/07.png" alt="24小时代充">
+                <img src="help/08.png" alt="将购买的卡密粘贴到输入框">
+            </div>
+        </div>
+
+        <div class="step-card reverse">
+            <div class="step-content">
+                <h2 id="step3">第三步：登录您的 Chat.Gpt 官网账号</h2>
+                <p>为了完成充值，我们需要一个临时的授权密钥。请按以下步骤操作。</p>
+                <ol>
+                    <li>打开 Chat.Gpt 官方网站：<a href="https://chat.openai.com" target="_blank">https://chat.openai.com</a></li>
+                    <li>登录您自己的 Chat.Gpt 账号。</li>
+                </ol>
+            </div>
+            <div class="step-image">
+                <img src="help/09.png" alt="GPT登录">
+            </div>
+        </div>
+        
+        <div class="step-card">
+            <div class="step-content">
+                <h2 id="step4">第四步：获取临时授权密钥</h2>
+                <p>登录成功后，点击我获取用于充值的临时密钥。</p>
+                <ol>
+                    <li>将自动访问官方授权页面：<a href="https://chat.openai.com/api/auth/session" target="_blank">.../session</a></li>
+                    <li>您会看到一长串代码。<strong>请完整复制页面上显示的所有内容</strong>。</li>
+                </ol>
+                <div style="background-color: #f7fafc; border-left: 4px solid #c53030; padding: 15px 20px; margin-top: 20px; border-radius: 0 8px 8px 0;">
+                    <strong>重要提示：</strong>这是一个临时密钥，仅用于本次充值授权。
+                </div>
+            </div>
+            <div class="step-image">
+                <img src="help/10.png" alt="点我获取密钥">
+                <img src="help/11.png" alt="全部密钥复制">
+            </div>
+        </div>
+        
+        </div>
+
+</body>
+</html>
