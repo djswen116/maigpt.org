@@ -42,10 +42,10 @@
       --warning-text: #7c2d12;
       --warning-sub: #9a3412;
 
-      /* Risk line */
+      /* Risk */
       --risk-bg: rgba(255, 255, 255, 0.72);
       --risk-border: rgba(239, 68, 68, 0.25);
-      --risk-text: #7f1d1d;
+      --risk-text: #111827; /* ✅ black text per request */
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -111,43 +111,44 @@
     }
     .announcement-banner a:hover { background: rgba(0, 122, 255, 0.16); }
 
-    /* ✅ Risk warning as its OWN card (separate from business reminder) */
-    .risk-banner {
-      max-width: 860px;
-      margin: 0 auto 12px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: var(--risk-bg);
+    /* ✅ Risk line now lives INSIDE announcement banner */
+    .announcement-banner .risk-inline {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--risk-bg);         /* ✅ background unchanged */
       border: 1px solid var(--risk-border);
-      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
-      text-align: center;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
+      text-align: left;
     }
 
-    .risk-title {
-      display: inline-flex;
-      align-items: center;
+    .announcement-banner .risk-inline .risk-title {
+      display: flex;
+      align-items: flex-start;
       gap: 10px;
-      font-weight: 900;
-      color: var(--risk-text);
+      color: var(--risk-text);            /* ✅ black text */
+      font-weight: 800;
       font-size: 1.02rem;
+      line-height: 1.55;
       letter-spacing: -0.2px;
-      line-height: 1.5;
     }
 
-    .risk-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
+    .announcement-banner .risk-inline .risk-icon {
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
       display: grid;
       place-items: center;
       background: rgba(239, 68, 68, 0.12);
       border: 1px solid rgba(239, 68, 68, 0.18);
       user-select: none;
       -webkit-user-select: none;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
+      margin-top: 1px;
     }
 
-    .risk-title strong { font-weight: 950; }
+    .announcement-banner .risk-inline strong { font-weight: 950; }
 
     /* ✅ Yellow gradient business reminder (separate card) */
     .warning-banner {
@@ -185,7 +186,6 @@
       pointer-events: none;
     }
 
-    /* ✅ icon changed: from ⚠️ to 🧩 (business) */
     .warning-icon-wrap {
       position: relative;
       z-index: 1;
@@ -585,9 +585,9 @@
       .announcement-banner { font-size: 0.92rem; padding: 12px 12px; border-radius: 10px; margin: -15px auto 16px; }
       .announcement-banner a { padding: 8px 12px; }
 
-      .risk-banner { padding: 10px 12px; border-radius: 12px; margin: 0 auto 10px; }
-      .risk-title { font-size: 0.92rem; }
-      .risk-icon { width: 30px; height: 30px; border-radius: 10px; }
+      .announcement-banner .risk-inline { padding: 10px 10px; border-radius: 10px; }
+      .announcement-banner .risk-inline .risk-title { font-size: 0.92rem; }
+      .announcement-banner .risk-inline .risk-icon { width: 30px; height: 30px; border-radius: 10px; }
 
       .warning-inner { grid-template-columns: 44px 1fr; gap: 10px; padding: 12px; }
       .warning-icon-wrap { width: 44px; height: 44px; border-radius: 12px; }
@@ -666,19 +666,19 @@
     <div class="announcement-banner">
       <p>自助充值系统已恢复，请按卡密说明选择对应充值系统！</p>
       <a href="gpt170" target="_blank" rel="noopener noreferrer">点击查看价格构成和服务保障</a>
-    </div>
 
-    <!-- ✅ Separate risk card -->
-    <div class="risk-banner" role="alert" aria-live="polite">
-      <div class="risk-title">
-        <span class="risk-icon" aria-hidden="true">🛑</span>
-        <span>
-          9月16号GPT新规,已无低价国家！<strong>现低价渠道，有极高封号风险（嘿卡、0元购等）</strong>
-        </span>
+      <!-- ✅ merged here, black text, background unchanged -->
+      <div class="risk-inline" role="alert" aria-live="polite">
+        <div class="risk-title">
+          <span class="risk-icon" aria-hidden="true">🛑</span>
+          <span>
+            9月16号GPT新规,已无低价国家！<strong>现低价渠道，有极高封号风险（嘿卡、0元购等）</strong>
+          </span>
+        </div>
       </div>
     </div>
 
-    <!-- ✅ Separate business reminder card -->
+    <!-- ✅ business reminder stays separate -->
     <div class="warning-banner" role="note" aria-label="业务提醒">
       <div class="warning-inner">
         <div class="warning-icon-wrap" aria-hidden="true"><span class="warning-icon">🧩</span></div>
@@ -886,6 +886,8 @@
     integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
     data-cf-beacon='{"version":"2024.11.0","token":"8299228287ec454395ca8481acb87a6c","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
     crossorigin="anonymous"></script>
+
+  <!-- ✅ removed duplicate beacon include -->
 </body>
 
 </html>
